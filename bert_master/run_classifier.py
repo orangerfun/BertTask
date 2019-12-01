@@ -200,7 +200,8 @@ class DataProcessor(object):
       reader = csv.reader(f, delimiter="\t", quotechar=quotechar)
       lines = []
       for line in reader:
-        lines.append(line)
+        if len(line) == 2:                          # 【改】过滤无效数据 
+            lines.append(line)
       return lines
 
 

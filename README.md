@@ -5,6 +5,7 @@
 # fine-tune一般过程
 ### 1.处理原始数据
 在做文本分类任务时，需要修改`run_classifier.py`文件，在其中添加自己的数据处理类；在此建议修改`run_classifier.py`文件前先对自己的数据进行处理，将数据格式修改成`.tsv`形式。tsv格式即一个样本中标签和文本间用`tab`隔开，对于对话系统类，两个句子间也用`tab`隔开。如下图所示<br>
+
 ![](https://github.com/orangerfun/BertTask/raw/master/tsv.png)
 
 在`run_classifier.py`文件中有一个`DataProcessor`类，该类中有一个`_read_tsv`方法，若事先未将数据修改成上述的tsv文件格式，需要修改该方法，若已经将数据处理成tsv数据格式，则该方法不需要修改<br>
@@ -12,6 +13,7 @@
 `_read_tsv`方法返回的是一个双重列表，`[[1],[2],[3]]` , `[1]` 是一个列表，元素是标签，句子（都是字符串）<br>
 ### 2.定义自己的数据处理类
 接下来在`run_classifier.py`文件中定义自己的数据处理类，暂且将类名命为`MyProcessor`主要需要修改的地方如图中标注所示（【】标注的地方）<br>
+
 ![](https://github.com/orangerfun/BertTask/raw/master/myproce.png)
 
 * `[1]`如果处理的文本是中文，需要设置380行，如果是英语，则不需要更改__init__方法<br>
